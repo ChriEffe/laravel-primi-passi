@@ -13,6 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    $data = [
+        'name' => 'Christian',
+        'lastname' => 'Ferrazzano',
+        'age' => '28'
+    ];
+    return view('home', $data);
+})->name('home');
+
+Route::get('/contacts', function () {
+    $data = [
+        'telephone' => '3284828246',
+        'email' => 'christian@gmail.com',
+    ];
+    return view('contacts', $data);
+})->name('contacts');
+
+Route::get('/bio', function () {
+    $data = [
+        'description' => 'Lorem ipsum',
+    ];
+    return view('bio', $data);
+})->name('bio');
